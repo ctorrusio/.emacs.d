@@ -18,6 +18,8 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(auto-save-file-name-transforms (quote ((".*" "~/.emacs.d/auto-save/auto-save-files/" t))))
+ '(auto-save-list-file-prefix "~/.emacs.d/auto-save/auto-save-list/.saves-")
  '(column-number-mode t)
  '(custom-enabled-themes (quote (solarized-dark)))
  '(custom-safe-themes
@@ -42,4 +44,6 @@
 
 ;; enabled minor modes
 (ido-mode t)
+
+
 
