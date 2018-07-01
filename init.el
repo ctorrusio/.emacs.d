@@ -19,14 +19,19 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(column-number-mode t)
- '(custom-enabled-themes (quote (solarized-light)))
+ '(custom-enabled-themes (quote (solarized-dark)))
  '(custom-safe-themes
    (quote
     ("a8245b7cc985a0610d71f9852e9f2767ad1b852c2bdea6f4aadc12cce9c4d6d0" "d677ef584c6dfc0697901a44b885cc18e206f05114c8a3b7fde674fce6180879" "8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" default)))
+ '(global-undo-tree-mode t)
  '(inhibit-startup-screen t)
  '(initial-scratch-message nil)
  '(size-indication-mode t)
- '(tool-bar-mode nil))
+ '(tool-bar-mode nil)
+ '(undo-tree-mode-lighter "")
+ '(undo-tree-visualizer-diff nil)
+ '(undo-tree-visualizer-relative-timestamps nil)
+ '(undo-tree-visualizer-timestamps t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -37,3 +42,4 @@
 
 ;; enabled minor modes
 (ido-mode t)
+
