@@ -46,22 +46,35 @@
 
 ;; enabled minor modes
 (ido-mode t)
-
-
+(add-hook 'prog-mode-hook #'hs-minor-mode)
+(hide-ifdef-mode t)
+(pending-delete-mode t)
 
 
 ;; own keybindings in a minor mode to override all other bindings globally.
 
 (defvar my-keys-minor-mode-map
   (let ((map (make-sparse-keymap)))
+    ;; ctrl+z undo
     (define-key map (kbd "C-z") 'undo)
+
+    ;;hide/show blocks and ifdefs
+    (define-key map (kbd "C--") 'hs-toggle-hiding)
+    (define-key map (kbd "C-+") 'hs-show-block)
+    (define-key map (kbd "C-_") 'hs-hide-all)
+    (define-key map (kbd "C-?") 'hs-show-all)
+    (define-key map (kbd "C-.") 'hide-ifdef-block)
+    (define-key map (kbd "C-:") 'hide-ifdefs)
+    (define-key map (kbd "C-0") 'show-ifdef-block)
+    (define-key map (kbd "C-=") 'show-ifdefs)
     map)
   "my-keys-minor-mode keymap.")
 
 (define-minor-mode my-keys-minor-mode
   "A minor mode so that my key settings override annoying major modes."
   :init-value t
-  :lighter " my-keys")
+  ;:lighter " my-keys"
+  )
 (defun my-minibuffer-setup-hook ()
   (my-keys-minor-mode 0))
 (defun my-keys-have-priority (_file)
@@ -75,4 +88,7 @@ Called via the `after-load-functions' special hook."
 (my-keys-minor-mode 1)
 (add-hook 'minibuffer-setup-hook 'my-minibuffer-setup-hook)
 (add-hook 'after-load-functions 'my-keys-have-priority)
+
+
+
 
