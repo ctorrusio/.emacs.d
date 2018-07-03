@@ -43,10 +43,12 @@
 
 
 
-
 ;; enabled minor modes
-(ido-mode t)
+
 (add-hook 'prog-mode-hook #'hs-minor-mode)
+(add-hook 'prog-mode-hook #'undo-tree-mode)
+(add-hook 'text-mode-hook #'undo-tree-mode)
+(ido-mode t)
 (hide-ifdef-mode t)
 (pending-delete-mode t)
 
